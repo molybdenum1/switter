@@ -10,13 +10,12 @@ function App() {
    useEffect(() => {
      axios.get('http://localhost:5001/main')
      .then(res => setPosts(res.data))
-   },[]) 
-
+   },[setPosts]) 
    console.log(posts)
   return (
     <div className="App">
-      <AddPost/>
-      { posts.map( post => <Post key={post.id} post={post} />)}
+      <AddPost />
+      { posts.map( post => <Post key={post._id} post={post} />)}
     </div>
   );
 }
