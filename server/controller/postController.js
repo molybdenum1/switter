@@ -19,6 +19,15 @@
             res.status(500).json(error); 
          }
      };
+     async delete(req, res) {
+        try {
+            const {id} = req.params;
+            const post = await Post.findByIdAndDelete(id);
+            return res.json(post);
+        } catch (error) {
+           res.status(500).json(error); 
+        }
+    };
  };
 
  module.exports = new PostController();

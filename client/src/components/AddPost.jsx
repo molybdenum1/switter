@@ -11,7 +11,7 @@ export default function AddPost() {
     })
 
     const handleSubmit = e => {
-
+      //  e.preventDefault();
         axios.post(`http://localhost:5001/main`, post)
         .then(res => console.log(res.data));
     }
@@ -19,7 +19,7 @@ export default function AddPost() {
     return (
         <div className={classes.addPost}>
             <form action="" 
-            method="post"
+            method=""
             onSubmit={handleSubmit}
             className={classes.addPostForm}>
                 <div className={classes.addPostFormDiv}>

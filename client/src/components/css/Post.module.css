@@ -6,6 +6,13 @@
     background-color: #FEFBF6;
     padding: 10px;
 }
+
+.post_menu{
+    position: relative;
+    text-align: right;
+    margin-right: 20px;
+}
+
 .post_title{
     font-size: x-large;
     font-weight: bold;

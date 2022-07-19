@@ -7,11 +7,25 @@ import { useEffect, useState } from 'react';
 function App() {
   const [posts, setPosts] = useState([]);
 
+  const getPosts = async () => {
+    try {
+      await axios.get('http://localhost:5001/main')
+     .then(res => setPosts(res.data));
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
    useEffect(() => {
-     axios.get('http://localhost:5001/main')
-     .then(res => setPosts(res.data))
-   },[setPosts]) 
+    getPosts();
+    const interval = setInterval(()=> getPosts()
+                    , 10000)
+     return () => clearInterval(interval)
+   },[]) 
+
    console.log(posts)
+
+
   return (
     <div className="App">
       <AddPost />
