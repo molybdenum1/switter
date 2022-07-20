@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import classes from './css/AddPost.module.css';
 
-export default function AddPost() {
+export default function AddPost({getPosts={getPosts}}) {
     const [post, setPost] = useState({
         author: '',
         title: '',
@@ -14,6 +14,7 @@ export default function AddPost() {
       //  e.preventDefault();
         axios.post(`http://localhost:5001/main`, post)
         .then(res => console.log(res.data));
+        getPosts();
     }
 
     return (

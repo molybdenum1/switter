@@ -18,18 +18,15 @@ function App() {
 
    useEffect(() => {
     getPosts();
-    const interval = setInterval(()=> getPosts()
-                    , 10000)
-     return () => clearInterval(interval)
    },[]) 
 
-   console.log(posts)
+   //console.log(posts)
 
 
   return (
     <div className="App">
-      <AddPost />
-      { posts.map( post => <Post key={post._id} post={post} />)}
+      <AddPost getPosts={getPosts} />
+      { posts.map( post => <Post key={post._id} postProps={post} getPosts={getPosts}/>)}
     </div>
   );
 }

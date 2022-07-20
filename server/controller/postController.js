@@ -19,6 +19,17 @@
             res.status(500).json(error); 
          }
      };
+
+     async update(req, res) {
+        try {
+           const post = req.body;
+           const updatedPost = await Post.findByIdAndUpdate(post._id, post, {new: true});
+           return res.json(updatedPost);
+        } catch (error) {
+         res.status(500).json(error);
+        }
+     }
+
      async delete(req, res) {
         try {
             const {id} = req.params;
