@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
-import classes from './css/Post.module.css';
+import classes from '../css/Post.module.css';
 
 export default function Post({postProps, getPosts}) {
   const [isOpened, setIsOpened] = useState(false);

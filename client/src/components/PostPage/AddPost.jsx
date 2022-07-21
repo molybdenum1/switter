@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import classes from './css/AddPost.module.css';
+import classes from '../css/AddPost.module.css';
 
 export default function AddPost({getPosts={getPosts}}) {
     const [post, setPost] = useState({
