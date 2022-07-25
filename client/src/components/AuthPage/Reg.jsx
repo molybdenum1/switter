@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import { useState } from 'react';
 import classes from '../css/AddPost.module.css';
+import { reg } from '../../actions/user';
 
 export default function Reg() {
     const [user, setUser] = useState({
@@ -10,10 +10,8 @@ export default function Reg() {
     })
 
     const handleSubmit = e => {
-        //  e.preventDefault();
-        //   axios.post(`http://localhost:5001/main`, post)
-        //   .then(res => console.log(res.data));
-        //   getPosts();
+        e.preventDefault();
+        reg(user.username, user.password);
       }
 
   return (
